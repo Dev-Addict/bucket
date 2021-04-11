@@ -59,7 +59,9 @@ this line will return this in json format
 + Double: double with pointing numbers
 + Character: you can represent character by using `'{character}'`
 + String: you can represent string by using `"{string}"`
-+ Array: you can use arrays by using brackets: `[value1, value2]`
++ Array: you can use arrays by using brackets `[value1, value2]`
++ Element: you can use elements to make sub data on a field by using the syntax you leaned for the root
+  elements: `element key("value") ("value")`
 
 ## Multiline Formatting
 
@@ -99,6 +101,49 @@ this code will return this in json format
     ],
     "name": "Iran",
     "phone": 98
+  }
+]
+```
+
+## Using Subelements
+
+you can use subelements just like other data types, and it follows the basic syntax rules you have seen before
+
+```
+car 
+  rating(
+    rating driver(5) passenger(5)
+  )
+  ("Tesla model 3")
+
+car 
+  rating(
+    rating driver(4) passenger(4)
+  )
+  ("Tesla model S")
+```
+
+this code will return this in json format
+
+```
+[
+  {
+    "element": "car",
+    "rating": {
+      "element": "rating",
+      "driver": "5",
+      "passenger": "5"
+    },
+    "value": "Tesla model 3"
+  },
+  {
+    "element": "car",
+    "rating": {
+      "element": "rating",
+      "driver": "4",
+      "passenger": "4"
+    },
+    "value": "Tesla model S"
   }
 ]
 ```
